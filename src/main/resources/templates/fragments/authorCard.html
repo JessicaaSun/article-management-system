@@ -1,0 +1,9 @@
+<div class="author-card col-lg-4 col-md-6 col-sm-12 card border-0 p-0" style="width: 18rem ; margin-bottom: 30px; padding-bottom: 10px;" th:fragment="author-card" th:each="author:${authors}">
+    <img th:src="${author.profileImg}" class="card-img-top" style="object-fit: cover; height: 250px"  alt="...">
+    <div class="card-body">
+        <h5 class="card-title" th:text="${author.name}"></h5>
+        <p class="card-text" th:text="${author.bio}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<!--        ***-->
+        <a th:href="@{author/{id}/{name}(id=${author.id}, name=${author.username})}" class="btn btn-primary" style="font-size: 13px">View profile</a>
+    </div>
+</div>

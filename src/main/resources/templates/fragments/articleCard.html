@@ -1,0 +1,61 @@
+
+<div th:fragment="article-card(source)" class="padding w-100">
+    <div class="row d-flex justify-content-between">
+        <div class="col" th:each="article : ${articles}">
+
+                <div class="card border-0" style="width: 23rem ; margin-bottom: 30px;">
+                    <img style="object-fit: cover; height: 350px; border-radius: 15px 15px 0 0" th:src="${article.imgURL}" class="card-img-top" alt="...">
+                    <div class="card-body position-relative">
+                        <div style="position: absolute; top: -23px" class="d-flex flex-col">
+                            <div>
+                                <img style="object-fit: cover; width: 77px; height: 77px; border: 2px solid white; border-radius: 50%" th:src="${article.author.profileImg}" alt="...">
+                            </div>
+                            <div class="title-icon ps-2">
+                                <div>
+                                    <p th:text="${article.author.name}" style="font-size: 15px; font-weight: 500; line-height: 1.2" class="m-0">
+
+                                    </p>
+                                    <p  style="font-size: 12px; font-weight: 300; color: orange" class="m-0" th:text="|@${article.author.username}|">
+
+                                    </p>
+                                </div>
+                                <div>
+
+                                    <a href="">
+                                        <i class="fa-regular fa-pen-to-square pe-2"></i>
+                                    </a>
+
+                                    <a th:href="@{/delete-article/{id}(id=${article.id}, source=${source})}" methods="get" class="delete-icon">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </a>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div style="padding-top: 60px;">
+                            <h5 class="card-title m-1 pb-1" th:text="${article.title}">Card title</h5>
+                            <div class="d-flex">
+                                <div th:each="category : ${article.category}">
+                                    <a class="category-btn bg-warning" style="font-size: 12px;  color: white; margin-right: 5px"  th:text="${category.categoryName}">Science</a>
+                                </div>
+                            </div>
+
+                            <p style="font-size: 14px; line-height: 1.3" class="card-text mt-3" th:text="${article.description}">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <hr>
+                            <div class="card-foot">
+                                <small class="small-text"><a href=""> <i class="fa-solid fa-heart"></i>429</a>
+                                    <a href=""><i class="fa-regular fa-message"></i> 28</a></small>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<div th:fragment="no-post">
+    <h4>There is no post yet.</h4>
+</div>

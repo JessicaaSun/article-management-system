@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${category.categoryName}"></title>
+    <link th:href="@{/css/categoryList.css}" rel="stylesheet">
+    <link th:href="@{/css/articleCard.css}" rel="stylesheet">
+</head>
+<body>
+<main  style="padding-top: 100px; margin: 0 120px 0 120px" layout:fragment="content">
+    <section >
+            <h2 class="ps-1 pb-3" th:text="|All Related Articles : ${articles.size()} |"></h2>
+            <div class="d-flex justify-content-center" th:insert="~{fragments/articleCard::article-card(source='category')}">
+        </div>
+    </section>
+</main>
+</body>
+</html>

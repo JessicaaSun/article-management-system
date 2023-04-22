@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layout}"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Author profile</title>
+  <link th:href="@{/css/authorProfile.css}" rel="stylesheet">
+  <link th:href="@{/css/articleCard.css}" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="content">
+  <div th:object="${author}">
+    <img th:src="*{coverImg}" alt="" class="w-100 object-fit-cover" style="height: 40vh; " >
+    <div class="container" style="margin-top: -7rem;">
+      <div class="profile-title d-flex justify-content-start align-items-center">
+        <img class="profile-img" th:src="*{profileImg}" alt="" width="180px" height="180px">
+        <div class="detail-profile mx-3 pt-3">
+          <h1 class="author-name" th:text="*{name}">Author's name</h1>
+          <p class="author-username" th:text="'@' + *{username}"></p>
+          <p class="pt-2" th:text="*{bio}">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum doloremque mollitia non enim iure vitae aut maiores similique reprehenderit temporibus quidem saepe sed voluptatem harum corrupti labore, laudantium beatae dolorem.</p>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="info-card col bg-light p-4">
+          <h3>More information</h3>
+          <div style="line-height: 1; padding-top: 20px;">
+            <p th:text="|Gender: *{gender}|" ></p>
+            <p th:text="|Address: *{address}|" ></p>
+            <p th:text="|Email: *{email}|" ></p>
+          </div>
+
+        </div>
+        <div class="col">
+          <div class="container d-flex justify-content-center">
+            <div class="row">
+              <div th:replace=" ${articles.size()>0} ? ~{fragments/articleCard::article-card(source='author')} :~{fragments/articleCard::no-post}"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

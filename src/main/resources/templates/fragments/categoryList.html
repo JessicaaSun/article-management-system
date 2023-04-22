@@ -1,0 +1,22 @@
+<div th:fragment="category-list">
+    <div class="category-list card border-0" style="width: 23rem; position: sticky">
+        <img style="object-fit: cover; height: 255px!important;" src="https://i.pinimg.com/564x/6e/e9/97/6ee99740b2185a0bc45eb3586cf1cda8.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <div>
+                <h5 class="card-title">JessArticle</h5>
+                <p class="card-text">Free posting and sharing articles with insane freedom.</p>
+            </div>
+            <hr>
+            <div>
+                <h5 class="mb-3">
+                    Popular Categories
+                </h5>
+                <div th:each="category : ${categories}" >
+                    <button><a th:href="@{category/{id}(id = ${category.categoryId})}" th:text="${category.categoryName}"></a></button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

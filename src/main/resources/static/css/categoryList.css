@@ -1,0 +1,19 @@
+.category-list button {
+    border: 1px transparent;
+    background-color: #FADDEB;
+    border-radius: 10px;
+    padding: 5px 5px 5px 10px;
+    width: 100%;
+    font-weight: 400;
+    margin-bottom: 8px;
+    text-align: left;
+}
+.category-list button:hover {
+   background-color: #ebbed6;
+}
+.category-list a:hover {
+    color: white!important;
+}
+.category-list a {
+    color: black!important;
+}

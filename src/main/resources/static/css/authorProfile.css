@@ -1,0 +1,22 @@
+.profile-img {
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+}
+.author-name {
+    color: white;
+    text-shadow: 1px 1px 1px #888;
+    line-height: 0.8;
+}
+.author-username{
+    color: orange;
+    font-weight: 400;
+}
+.info-card {
+    height: 200px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+}
+.info-card p {
+    margin-bottom: 10px;
+}

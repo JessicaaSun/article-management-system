@@ -1,0 +1,73 @@
+body {
+    font-weight: 300;
+}
+.category-btn {
+    padding: 4px 7px 4px 7px !important;
+    text-decoration: none;
+    border: 1px transparent;
+    border-radius: 10px;
+}
+.card {
+    border-radius: 15px;
+}
+.card-img-top {
+    border-radius: 15px 15px 0 0;
+}
+.author-card .btn {
+    border: 1px transparent;
+    background-color: #FADDEB;
+    border-radius: 7px;
+    color: black;
+    padding: 5px 10px 5px 10px;
+    font-weight: 400;
+   box-shadow: none;
+}
+.author-card .btn:hover {
+    background-color: #ebbed6;
+    color: white;
+    box-shadow: none;
+}
+.d-flex.flex-row.justify-content-between {
+    display: flex;
+}
+.title-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    top: 27px;
+    position: relative;
+    width: 16rem;
+}
+
+.small-text {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.small-text i {
+  padding-right: 5px;
+}
+.small-text a:hover {
+    color: grey;
+}
+.small-text a {
+    color: black;
+}
+.title-icon i {
+    font-size: 14px;
+}
+a {
+    text-decoration: none;
+    color: grey;
+}
+.delete-icon:hover{
+    color: red;
+}
+.fa-heart {
+    color: red;
+}
+/*.icon {*/
+/*    position: relative;*/
+/*    top:-500px;*/
+/*}*/

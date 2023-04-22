@@ -13,6 +13,7 @@ import java.util.Arrays;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArticleRequest {
+    private int id;
     @NotEmpty(message = "Title cannot be empty!")
     private String title;
     @NotEmpty(message = "Description cannot be empty!")
@@ -20,6 +21,7 @@ public class ArticleRequest {
     private MultipartFile file;
 //    @Pattern(regexp = "^[0-9]*$", message = "Author ID can only be number")
     private int authorId;
-    private int categoryId;
+    private int[] categoryId;
+    private String imgURL;
 
 }

@@ -13,4 +13,5 @@ public interface ArticleService {
     List<Article> getArticleByCategoryId(int id);
     void addNewArticle(Article article);
     void deleteArticle(int id);
+    void editArticle(int id, Article article);
 }

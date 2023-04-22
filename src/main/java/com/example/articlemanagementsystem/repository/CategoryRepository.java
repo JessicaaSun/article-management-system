@@ -10,6 +10,8 @@ public class CategoryRepository {
         add(new Category(1, "Science"));
         add(new Category(2, "Education"));
         add(new Category(3, "Entertainment"));
+        add(new Category(4, "Programming"));
+        add(new Category(5, "Sport"));
     }};
     public List<Category> getCategories() {
         return categories;

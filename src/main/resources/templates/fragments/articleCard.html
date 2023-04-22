@@ -7,21 +7,30 @@
                     <img style="object-fit: cover; height: 350px; border-radius: 15px 15px 0 0" th:src="${article.imgURL}" class="card-img-top" alt="...">
                     <div class="card-body position-relative">
                         <div style="position: absolute; top: -23px" class="d-flex flex-col">
-                            <div>
-                                <img style="object-fit: cover; width: 77px; height: 77px; border: 2px solid white; border-radius: 50%" th:src="${article.author.profileImg}" alt="...">
-                            </div>
-                            <div class="title-icon ps-2">
+<!--                            <a th:href="@{~/author/{id}{name}(id = ${article.author.id}, name=${article.author.username})}">-->
                                 <div>
-                                    <p th:text="${article.author.name}" style="font-size: 15px; font-weight: 500; line-height: 1.2" class="m-0">
-
-                                    </p>
-                                    <p  style="font-size: 12px; font-weight: 300; color: orange" class="m-0" th:text="|@${article.author.username}|">
-
-                                    </p>
+                                    <a th:href="@{~/author/{id}/{name}(id = ${article.author.id}, name=${article.author.username})}">
+                                    <img style="object-fit: cover; width: 77px; height: 77px; border: 2px solid white; border-radius: 50%" th:src="${article.author.profileImg}" alt="...">
+                                    </a>
                                 </div>
-                                <div>
+                                <div class="title-icon ps-2">
+                                    <div>
+                                        <a th:href="@{~/author/{id}/{name}(id = ${article.author.id}, name=${article.author.username})}">
+                                            <p style="font-size: 15px; font-weight: 500; line-height: 1.2; color: black" class="m-0" th:text="|${article.author.name}|">
 
-                                    <a href="">
+                                            </p>
+                                        </a>
+                                        <a th:href="@{~/author/{id}/{name}(id = ${article.author.id}, name=${article.author.username})}">
+                                            <p  style="font-size: 12px; font-weight: 300; color: orange" class="m-0" th:text="|@${article.author.username}|">
+                                            </p>
+                                        </a>
+
+                                    </div>
+                                    <div>
+<!--                            </a>-->
+
+
+                                    <a th:href="@{/edit-article/{id}(id = ${article.id})}" methods="post">
                                         <i class="fa-regular fa-pen-to-square pe-2"></i>
                                     </a>
 
@@ -38,7 +47,7 @@
                             <h5 class="card-title m-1 pb-1" th:text="${article.title}">Card title</h5>
                             <div class="d-flex">
                                 <div th:each="category : ${article.category}">
-                                    <a class="category-btn bg-warning" style="font-size: 12px;  color: white; margin-right: 5px"  th:text="${category.categoryName}">Science</a>
+                                    <a th:href="@{~/category/{id}(id = ${category.categoryId})}" class="category-btn bg-warning" style="font-size: 12px;  color: white; margin-right: 5px"  th:text="${category.categoryName}">Science</a>
                                 </div>
                             </div>
 

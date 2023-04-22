@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master-layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit article</title>
+    <style>
+        input, select, textarea {
+            border: 0 !important;
+            font-size: 14px !important;
+            color: black!important;
+            font-weight: 300!important;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+        }
+        label{
+            padding-bottom: 6px;
+            font-weight: 400;
+        }
+        option {
+            font-weight: 300!important;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <div style="display: flex; justify-content: center; align-content: center; padding-top: 100px" layout:fragment="content">
+        <div style="width: 70%;">
+            <form th:action="@{/handle-edit-article/{id}(id=${articles.id})}" th:object="${articles}" method="post" enctype="multipart/form-data">
+                <div class="d-flex bg-light justify-content-center shadow-sm" style="border: 1px; border-radius:0 15px 15px 0" >
+                    <div style="background-color: pink; border: 1px; border-radius: 15px 0 0 15px" class="profile-section flex-column d-flex justify-content-center p-4">
+                        <img width="300" id="output-image" th:src="*{imgURL}" src="https://www.google.com/search/static/gs/animal/cover_images/m03qrc_cover.png">
+                        <input th:field="*{file}" name="file" class="form-control" onchange="loadFile(event)" type="file">
+                    </div>
+                    <div  class="input-section ms-3 p-4">
+                        <h3> Edit Article</h3>
+                        <div class="d-flex mt-4" style="flex-direction: column">
+                            <div>
+                                <label for="articleTitle"> Article Title</label>
+                                <input th:field="*{title}" size="100%" id="articleTitle"  class="form-control " type="text">
+                                <p class="form-text text-danger" th:errors="*{title}"></p>
+                            </div>
+                            <div class="mt-3">
+                                <label for="articleDescription"> Article Description </label>
+                                <textarea  th:field="*{description}" id="articleDescription" class="form-control "></textarea>
+                                <p class="form-text text-danger" th:errors="*{description}"></p>
+                            </div>
+                            <div class="mt-3 d-flex flex-row justify-content-between">
+                                <div>
+                                    <label for="authorSelect">Choose Author</label>
+
+                                    <select id="authorSelect" th:field="*{authorId}" class="form-select">
+                                        <option th:each="author: ${authors}"  th:value="${author.id}" th:text="${author.name}"> </option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="categorySelect">Choose Category</label>
+                                    <select id="categorySelect" th:field="*{categoryId}" multiple="multiple" size="3" class="form-select">
+                                        <option th:each="category: ${categories}"  th:value="${category.categoryId}" th:text="${category.categoryName}"> </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                            <a th:href="@{/}" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <script>
+            function loadFile(event){
+                let image = document.getElementById('output-image');
+                image.src = URL.createObjectURL(event.target.files[0])
+            }
+        </script>
+    </div>
+</main>
+</body>
+</html>

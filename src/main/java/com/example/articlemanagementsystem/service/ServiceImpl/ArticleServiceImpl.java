@@ -35,10 +35,14 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void addNewArticle(Article article) {
-
+        articleRepository.addNewArticle(article);
     }
     @Override
     public void deleteArticle(int id) {
         articleRepository.deleteArticle(id);
+    }
+    @Override
+    public void editArticle(int id, Article article) {
+        articleRepository.editArticle(id, article);
     }
 }

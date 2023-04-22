@@ -12,7 +12,10 @@
                     Popular Categories
                 </h5>
                 <div th:each="category : ${categories}" >
-                    <button><a th:href="@{category/{id}(id = ${category.categoryId})}" th:text="${category.categoryName}"></a></button>
+                    <a  th:href="@{category/{id}(id = ${category.categoryId})}">
+                        <button th:text="${category.categoryName}"></button>
+                    </a>
+
 
                 </div>
             </div>

@@ -10,8 +10,6 @@
 }
 .category-list button:hover {
    background-color: #ebbed6;
-}
-.category-list a:hover {
     color: white!important;
 }
 .category-list a {
